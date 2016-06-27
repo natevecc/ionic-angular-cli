@@ -12,7 +12,7 @@
     "e2e": "protractor",
     "serve": "ng serve --output-path www",
     "build": "ng build --output-path www",
-    "build:prod": "ng build -env prod --output-path www",
+    "build:prod": "ng build -prod --output-path www",
     "ionic:emulate": "npm run build:prod && ionic emulate ios"
   },
   "private": true,
@@ -35,7 +35,7 @@
     "zone.js": "0.6.12"
   },
   "devDependencies": {
-    "angular-cli": "1.0.0-beta.8",
+    "angular-cli": "natevecc/angular-cli#master",
     "codelyzer": "0.0.20",
     "ember-cli-inject-live-reload": "1.4.0",
     "jasmine-core": "2.4.1",
