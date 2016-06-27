@@ -7,7 +7,7 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 1000;
 __karma__.loaded = function () {
 };
 
-var distPath = '/base/dist/';
+var distPath = '/base/www/';
 var appPaths = ['app']; //Add all valid source code folders here
 
 function isJsFile(path) {
@@ -38,13 +38,20 @@ System.import('system-config.js').then(function() {
   // Load and configure the TestComponentBuilder.
   return Promise.all([
     System.import('@angular/core/testing'),
-    System.import('@angular/platform-browser-dynamic/testing')
+    System.import('@angular/platform-browser-dynamic/testing'),
+    System.import('ionic-angular')
   ]).then(function (providers) {
     var testing = providers[0];
     var testingBrowser = providers[1];
+    var ionic = providers[2];
 
-    testing.setBaseTestProviders(testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
-      testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+    testing.setBaseTestProviders(
+      testingBrowser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+      [
+        testingBrowser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS,
+        ionic.ionicProviders()
+      ]
+      );
   });
 }).then(function() {
   // Finally, load all spec files.

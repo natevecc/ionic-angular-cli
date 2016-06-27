@@ -1,14 +1,14 @@
-import { IonicAngularCliPage } from './app.po'
+import { IonicAngularCliStarterPage } from './app.po'
 
-describe('ionic-angular-cli App', function() {
-  let page: IonicAngularCliPage
+describe('ionic-angular-cli-starter App', function() {
+  let page: IonicAngularCliStarterPage
 
   beforeEach(() => {
-    page = new IonicAngularCliPage()
+    page = new IonicAngularCliStarterPage()
   })
 
-  it('should display message saying app works', () => {
+  it('should display message saying Welcome to Ionic!', () => {
     page.navigateTo()
-    expect(page.getParagraphText()).toEqual('app works!')
+    expect(page.getParagraphText()).toEqual('Welcome to Ionic!')
   })
 })
