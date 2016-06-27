@@ -3,7 +3,10 @@
 <head>
   <meta charset="utf-8">
   <title>IonicAngularCli</title>
-  <base href="/">
+  <!--<base href="/">-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
 
   {{#unless environment.production}}
   <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
@@ -16,10 +19,11 @@
   <link wp-href="styles/app.wp.css" rel="stylesheet">
 </head>
 <body>
-  <ion-app>Loading...</ion-app>
-
+  <ion-app></ion-app>
   
-
+    {{#if environment.production}}
+      <script src="cordova.js"></script>
+    {{/if}}
     {{#each scripts.polyfills}}
     <script src="{{.}}"></script>
     {{/each}}
@@ -27,9 +31,7 @@
       System.import('system-config.js').then(function () {
         System.import('main');
       }).catch(console.error.bind(console));
-    </script>
-
-  
+    </script>  
 
 </body>
 </html>

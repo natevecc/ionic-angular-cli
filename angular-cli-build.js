@@ -16,7 +16,7 @@ module.exports = function(defaults) {
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
       '@angular/**/*.+(js|js.map)',
-      'ionic-angular/**/*.+(js|js.map|scss|ttf|woff|woff2)'
+      'ionic-angular/**/*.+(js|js.map|ttf|woff|woff2)'
     ],
     sassCompiler: {
       includePaths: [

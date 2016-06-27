@@ -8,7 +8,7 @@
 /** Map relative paths to URLs. */
 const map: any = {
   'ionic-angular': 'vendor/ionic-angular'
-};
+}
 
 /** User packages configuration. */
 const packages: any = {
@@ -17,7 +17,7 @@ const packages: any = {
     defaultExtension: 'js',
     main: 'index.js'
   }
-};
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 /***********************************************************************************************
@@ -40,15 +40,15 @@ const barrels: string[] = [
   'app',
   'app/shared',
   /** @cli-barrel */
-];
+]
 
-const cliSystemConfigPackages: any = {};
+const cliSystemConfigPackages: any = {}
 barrels.forEach((barrelName: string) => {
-  cliSystemConfigPackages[barrelName] = { main: 'index' };
-});
+  cliSystemConfigPackages[barrelName] = { main: 'index' }
+})
 
 /** Type declaration for ambient System. */
-declare var System: any;
+declare var System: any
 
 // Apply the CLI SystemJS configuration.
 System.config({
@@ -58,7 +58,7 @@ System.config({
     'main': 'main.js'
   },
   packages: cliSystemConfigPackages
-});
+})
 
 // Apply the user's configuration.
-System.config({ map, packages });
+System.config({ map, packages })
