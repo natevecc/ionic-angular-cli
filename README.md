@@ -6,7 +6,7 @@ This project is a work in progress and should be considered unstable. It is usin
 
 ## Warning: Hacks and Gotchas
 - **using unmerged code**: [PR](https://github.com/angular/angular-cli/pull/1109) and a [repo](https://github.com/natevecc/angular-cli) with it merged in and updated that this project is using. **Need to test a fresh install to make sure this works without errors**
-- peer dependency warnings related to ionic and angular-router: npm gives warnings but it looks like Ionic is removing the old router in its more recent releases. The ionic master branch doesn't have it as a dependency and if you stick to only using their NavController and the new router you shouldn't run into issues. **Need to migrate to newer stable ionic release asap**
+- incoming router woes: The ionic team is migrating away from the old angular router to the new one. If you stick to only using their NavController you shouldn't run into issues. **Need to migrate to newer stable ionic release asap**
 - cordova js and prod mode: right now the easiest way to run the ionic app on an emulator or device is by using prod mode. Need to set up an emulator dev environment that will allow sourcemaps and cordova to get loaded into the compiled app for easier debugging.
 - in prod mode some polyfills are still looking for map files causing some non-fatal errors on emulators and devices
 - jumbled build process that tries to use package.json scripts to smooth over but need a cleaner way. Maybe if angular-cli had plugin support...
