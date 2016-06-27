@@ -15,7 +15,15 @@ module.exports = function(defaults) {
       'es6-shim/es6-shim.js',
       'reflect-metadata/**/*.+(ts|js|js.map)',
       'rxjs/**/*.+(js|js.map)',
-      '@angular/**/*.+(js|js.map)'
-    ]
+      '@angular/**/*.+(js|js.map)',
+      'ionic-angular/**/*.+(js|js.map|scss|ttf|woff|woff2)'
+    ],
+    sassCompiler: {
+      includePaths: [
+        "node_modules/ionic-angular",
+        "node_modules/ionicons/dist/scss"
+      ]
+    },
+    outputPath: "www"
   });
 };

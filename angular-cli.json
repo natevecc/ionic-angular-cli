@@ -27,6 +27,7 @@
     "sourceDir": "src",
     "styleExt": "css",
     "prefixInterfaces": false,
-    "lazyRoutePrefix": "+"
+    "lazyRoutePrefix": "+",
+    "outputPath": "www"
   }
 }
