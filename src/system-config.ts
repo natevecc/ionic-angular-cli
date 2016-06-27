@@ -7,7 +7,8 @@
  **********************************************************************************************/
 /** Map relative paths to URLs. */
 const map: any = {
-  'ionic-angular': 'vendor/ionic-angular'
+  'ionic-angular': 'vendor/ionic-angular',
+  'ionic-native': 'vendor/ionic-native'
 }
 
 /** User packages configuration. */
@@ -16,6 +17,11 @@ const packages: any = {
     format: 'cjs',
     defaultExtension: 'js',
     main: 'index.js'
+  },
+  'ionic-native': {
+    format: 'cjs',
+    defaultExtension: 'js',
+    main: 'dist/index.js'
   }
 }
 
