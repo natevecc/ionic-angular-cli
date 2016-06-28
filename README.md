@@ -12,7 +12,7 @@ This project is a work in progress and should be considered unstable. It is usin
 - jumbled build process that tries to use package.json scripts to smooth over but need a cleaner way. Maybe if angular-cli had plugin support...
 - currently all of the ionic stylesheets are imported into the src/styles directory into device specific files. If you want to change global ionic style stuff go there otherwise use component level stylesheets
 - project only setup to emulate on ios. See [ionic docs](http://ionicframework.com/docs/v2/getting-started/installation/#building-for-android) for how to add android support or run on devices. You'll need to make sure you have a prod build in the `www` directory before using any of the ionic `emulate` or `run` commands. **Need to add and test android support**
-- Right now I'm importing the ionic sass files using relative file paths. I'd like to understand why I can't use absolute file paths using the `includePaths` option I set up with the sass compiler.
+- Right now ionic scss files are being imported using node-sass includePaths option but at the project level instead of at the node_modules level. ex: `@import "globals.core";` vs `@import "ionic-angule/globals.core";`. I'd prefer the second method as it let's developers known where it's coming from outside of adding a comment but adding `node_modules` to includPaths doesn't allow for the second option currently.
 
 ## Setup
 

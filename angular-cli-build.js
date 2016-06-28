@@ -21,6 +21,7 @@ module.exports = function(defaults) {
     ],
     sassCompiler: {
       includePaths: [
+        "node_modules",
         "node_modules/ionic-angular",
         "node_modules/ionicons/dist/scss"
       ]
