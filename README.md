@@ -6,13 +6,13 @@ This project is a work in progress and should be considered unstable. It is usin
 
 ## Warning: Hacks and Gotchas
 - **using unmerged code**: [PR](https://github.com/angular/angular-cli/pull/1109) and a [repo](https://github.com/natevecc/angular-cli) with it merged in and updated that this project is using. **Need to test a fresh install to make sure this works without errors**
-- incoming router woes: The ionic team is migrating away from the old angular router to the new one. If you stick to only using their NavController you shouldn't run into issues. **Need to migrate to newer stable ionic release asap**
+- new router woes: The ionic team is migrating away from the old angular router to the new one. If you stick to only using their NavController you shouldn't run into issues. **Need to migrate to newer stable ionic release asap**
 - cordova js and prod mode: right now the easiest way to run the ionic app on an emulator or device is by using prod mode. Need to set up an emulator dev environment that will allow sourcemaps and cordova to get loaded into the compiled app for easier debugging.
 - in prod mode some polyfills are still looking for map files causing some non-fatal errors on emulators and devices
 - jumbled build process that tries to use package.json scripts to smooth over but need a cleaner way. Maybe if angular-cli had plugin support...
 - currently all of the ionic stylesheets are imported into the src/styles directory into device specific files. If you want to change global ionic style stuff go there otherwise use component level stylesheets
-- project only setup to emulate on ios. See [ionic docs](http://ionicframework.com/docs/v2/getting-started/installation/#building-for-android) for how to add android support or run on devices. You'll need to make sure you have a prod build in the `www` directory before using any of the ionic `emulate` or `run` commands. **Need to add and test android support**
-- Right now ionic scss files are being imported using node-sass includePaths option but at the project level instead of at the node_modules level. ex: `@import "globals.core";` vs `@import "ionic-angule/globals.core";`. I'd prefer the second method as it let's developers known where it's coming from outside of adding a comment but adding `node_modules` to includPaths doesn't allow for the second option currently.
+- project only setup to emulate on ios. See [ionic docs](http://ionicframework.com/docs/v2/getting-started/installation/#building-for-android) for how to add android support or run on devices. You'll need to make sure you have a prod build in the `www` directory before using any of the ionic `emulate` or `run` commands to make sure the `cordova.js` dependency is loaded. **Need to add and test android support**
+- Right now ionic scss files are being imported using node-sass includePaths option but at the project level instead of at the node_modules level. ex: `@import "globals.core";` vs `@import "ionic-angule/globals.core";`. I'd prefer the second method as it implicitly communicates to developers that the file is coming from outside of the current file structure.
 
 ## Setup
 
@@ -21,7 +21,7 @@ Then clone or download this project and change the following files:
 - ionic.config.json
   - change the `name` property to the name of your project
 - config.xml
-  - change the name of the `widget.id` property to a proper reverse url name for your proeject. ex: `com.ionicframework.ionic-angular-cli-starter`
+  - change the name of the `widget.id` property to a proper reverse url name for your proeject. ex: `com.natevecc.ionic-angular-cli-starter`
   - change the name of the `name` tag to the name of your project. ex: `ionic-angular-cli-starter`
   - update the `author` tag
 
@@ -31,7 +31,7 @@ Then run `ionic state restore` to load up all the default plugins this project i
 
 We use the angular cli for most commands:
 - Use `ng serve` to start up dev build along with a server at `http://localhost:4200/` to do browser based development.
-- To do a production build you can do `ng build -prod`. **Note production builds add the cordova polyfil to index.html**
+- To do a production build you can do `ng build -prod`. **NOTE: production builds add the cordova polyfil to index.html**
 - To run your app in an emulator do `npm run ionic:emulate:ios`. Under the hood: `ng build -prod && ionic emulate ios`. **Only supports iOS for now**. You will see an error about no gulpfile and making sure your build step has completed which is safe to ignore.
 - To run the unit tests use angular-cli: `ng test` 
 - For e2e tests run `ng serve` followed by `ng e2e`
