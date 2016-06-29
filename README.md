@@ -16,7 +16,7 @@ This project is a work in progress and should be considered unstable. It is usin
 
 ## Setup
 
-You need to have the ionic 2 beta and cordova installed globally: `npm install -g ionic@beta cordova`.
+You need to have the ionic 2 beta, cordova and angular-cli installed globally: `npm install -g ionic@beta cordova angular-cli`.
 Then clone or download this project, run `npm install`, and change the following files:
 - ionic.config.json
   - change the `name` property to the name of your project
@@ -33,7 +33,7 @@ We use the angular cli for most commands:
 - Use `ng serve` to start up dev build along with a server at `http://localhost:4200/` to do browser based development.
 - To do a production build you can do `ng build -prod`. **NOTE: production builds add the cordova polyfil to index.html**
 - To run your app in an emulator do `npm run ionic:emulate:ios`. Under the hood: `ng build -prod && ionic emulate ios`. **Only supports iOS for now**. You will see an error about no gulpfile and making sure your build step has completed which is safe to ignore.
-- To run the unit tests use angular-cli: `ng test` 
+- To run the unit tests use angular-cli: `ng test`
 - For e2e tests run `ng serve` followed by `ng e2e`
 
 ## Ionic and Cordova Plugins
