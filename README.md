@@ -17,7 +17,7 @@ This project is a work in progress and should be considered unstable. It is usin
 ## Setup
 
 You need to have the ionic 2 beta and cordova installed globally: `npm install -g ionic@beta cordova`.
-Then clone or download this project and change the following files:
+Then clone or download this project, run `npm install`, then change the following files:
 - ionic.config.json
   - change the `name` property to the name of your project
 - config.xml
